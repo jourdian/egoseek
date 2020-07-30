@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>EgoSeek</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+    <script src="js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/fingerprint.js"></script>
+
+
+    <script language="javascript" type="text/javascript" src="getIP.php"></script>
+    <script>
+        $(document).ready(function () {       
+
+            // OBTENEMOS IP MEDIANTE PETICIÓN AJAX AL SERVIDOR
+            $.ajax({
+                type: 'get',
+                url: "http://159.65.51.46/egoseek/getIP.php",
+                success: function (data) {
+                    $("#miIP").html(JSON.stringify(data, null, 2));
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+
+
+
+</head>
+
+
+<body>
+    <div class="container-contact101">
+        <div class="wrap-contact101">
+            <div class="contact100-form-title" style="background-image: url(images/hacked.jpg);">
+                <span class="contact100-form-title-3">
+                    VEAMOS...
+                </span>
+            </div>
+            <br>
+
+            <div class="container-contact100-form-btn">
+                <img style="padding-right:25px;width:180px;height:auto" src="images/hacked2.png">
+                <p class="texto-blanco">A continuación puedes comprobar qué datos he conseguido a partir de la
+                    información que has aportado y qué podría haber pasado si este sitio hubiese sido malicioso.
+                </p>
+                <span class="texto-rojo">Te recuerdo que <b>no he hecho búsquedas en Internet. Además, yo no tengo
+                        acceso
+                        a esta información y no se ha almacenado en ninguna base de datos. </b></span>
+            </div>
+
+            <br><br>
+            <p class="texto-blanco">* Tu nombre: <span class="texto-rojo" id="tunombre"></span></p>
+            <p>Tu nombre es el punto de partida. Si has puesto tu nombre completo (nombre y apellidos)
+                será más fácil acertar con tu verdadera identidad. Pero lo que realmente comprometerá
+                tu privacidad es la combinación de diferentes datos.
+            </p>
+            <br>
+            <p class="texto-blanco">* Tu email: <span class="texto-rojo" id="tuemail"></span></p>
+            <div id="emailtotalreprimenda" style="display:none">
+                <p>
+                    ¿Has puesto tu email completo? ¿De verdad?</p>
+            </div>
+            <div id="emailparcialreprimenda" style="display:none">
+                <p>
+                    Bien, has puesto solo una parte de tu email. ¿Se te ha ocurrido pensar lo fácil que puede ser
+                    completar la parte que falta? Piénsalo. ¿Cuantos servidores de correo
+                    electrónico gratuitos suele usar la gente? El asunto es tan sencillo como
+                    hacer combinaciones, añadiendo a lo que has puesto los servidores de email
+                    más habituales:
+                    <ul style="color:white">
+                        <li><span id="tuemail2"></span><span>@gmail.com</span></li>
+                        <li><span id="tuemail3"></span><span>@hotmail.com</span></li>
+                        <li><span id="tuemail4"></span><span>@yahoo.com</span></li>
+                        <li><span id="tuemail5"></span><span>@gmx.com</span></li>
+                    </ul>
+                </p>
+            </div>
+
+            <br>
+
+            <script>
+                document.getElementById('tunombre').innerHTML = sessionStorage.getItem('nombre');
+                var email = sessionStorage.getItem('email');
+                document.getElementById('tuemail').innerHTML = email;
+                document.getElementById('tuemail2').innerHTML = email;
+                document.getElementById('tuemail3').innerHTML = email;
+                document.getElementById('tuemail4').innerHTML = email;
+                document.getElementById('tuemail5').innerHTML = email;
+
+                // Comprobamos la validez del email (es un email completo?)
+                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                if (emailRegex.test(email)) {
+                    $("#emailtotalreprimenda").css("display", "block");
+                    $("#emailparcialreprimenda").css("display", "none");
+                } else {
+                    $("#emailtotalreprimenda").css("display", "none");
+                    $("#emailparcialreprimenda").css("display", "block");
+                }
+
+            </script>
+
+
+            <p class="texto-blanco">* Tu teléfono móvil: <span class="texto-rojo" id="tutelefono"></span></p>
+            <div id="telefonototalreprimenda" style="display:none">
+                <p>
+                    ¿Has puesto tu teléfono completo? ¿De verdad? ¿Sabes la cantidad de datos que se pueden
+                    conseguir a partir de tu teléfono móvil?
+                </p>
+            </div>
+            <div id="telefonoparcialreprimenda" style="display:none">
+                <p>
+                    Bueno, parece que has sido precavid@ y no has aportado tu número completo. Aunque
+                    le has facilitado bastante el trabajo a los malvados.
+                </p>
+                <p>
+                    Si has aportado las cinco primeras cifras de tu teléfono móvil, solo necesitamos
+                    encontrar un número de 4 cifras. ¿Sabes cuantas combinaciones hay que buscar?
+                    Solo 10.000 (de 0000 a 9999)
+                </p>
+                <p>
+                    A partir de ahí, solo es cuestión de hacer búsquedas combinando los datos que ya tenemos
+                    (nombre + email + teléfono) hasta que suene la flauta. ¿Crees que eso le costará mucho a
+                    un ordenador?
+                </p>
+            </div>
+            <br>
+
+            <script>
+
+                var telefono = sessionStorage.getItem('telefono');
+                if (telefono.substring(0, 3) == '+34') {
+                    var telefonoLimpio = telefono.substring(3);
+                }
+                else {
+                    var telefonoLimpio = telefono.substring(0);
+                }
+
+
+                document.getElementById('tutelefono').innerHTML = telefonoLimpio
+
+                if (telefono.length < 9) {
+                    $("#telefonototalreprimenda").css("display", "none");
+                    $("#telefonoparcialreprimenda").css("display", "block");
+                } else {
+                    $("#telefonototalreprimenda").css("display", "block");
+                    $("#telefonoparcialreprimenda").css("display", "none");
+                }
+            </script>
+
+            <p class="texto-blanco">Tu IP: <span id="miIP" class="texto-rojo"></span></p><br>
+            <p>En este caso solo me he centrado en tu IP para no comprometer tu información,
+                pero hay servicios online que consiguen tu IP y otros datos. Es un proceso
+                extremadamente sencillo y que aporta datos muy jugosos.
+            </p>
+            <p>
+                Tu IP es la puerta de entrada a tu dispositivo (o a la red de tu casa).
+                Se pueden hacer multitud de "gamberradas" conociendo tu IP y lo peor de
+                todo es que, es extremadamente sencillo conseguirla. Solo debes visitar
+                una página Web (como ésta). Para este ejercicio, <b>solo he necesitado dos líneas de
+                    código en mi servidor para conseguir tu IP.</b>
+            </p>
+            <br>
+
+
+
+
+            <p class="texto-blanco">Datos acerca de tu dispositivo y navegador: <span id="miIP"
+                    class="texto-rojo"></span></p><br>
+
+
+
+            <script>
+                if (window.requestIdleCallback) {
+                    requestIdleCallback(function () {
+                        Fingerprint2.get(function (components) {
+                            console.log(components) 
+                            document.getElementById("navegador").innerHTML = components[0].value;
+                            document.getElementById("lenguaje").innerHTML = components[2].value;
+                            document.getElementById("profcolor").innerHTML = components[3].value;
+                            document.getElementById("resolucion").innerHTML = components[6].value;
+                            document.getElementById("timezone").innerHTML = components[9].value;
+                            document.getElementById("plataforma").innerHTML = components[16].value;
+                            document.getElementById("adblock").innerHTML = components[21].value;
+                            document.getElementById("memoria").innerHTML = navigator.deviceMemory
+
+                        })
+
+                    })
+                } else {
+                    setTimeout(function () {
+                        Fingerprint2.get(function (components) {
+                            document.getElementById("navegador").innerHTML = components[0].value;
+                            document.getElementById("lenguaje").innerHTML = components[2].value;
+                            document.getElementById("profcolor").innerHTML = components[3].value;
+                            document.getElementById("resolucion").innerHTML = components[6].value;
+                            document.getElementById("timezone").innerHTML = components[9].value;
+                            document.getElementById("plataforma").innerHTML = components[16].value;
+                            document.getElementById("adblock").innerHTML = components[21].value;
+                            document.getElementById("memoria").innerHTML = navigator.deviceMemory
+
+                        })
+                    }, 500)
+                }
+                // NIVEL DE BATERÍA
+                navigator.getBattery().then(function (battery) {
+
+                    var level = battery.level;
+
+                    console.log("nivel de batería" + level * 100 + " %");
+                    document.getElementById("bateria").innerHTML = level * 100 + "%";
+
+                });
+
+            </script>
+            <p class="texto-blanco">Navegador: <span id="navegador" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Lenguaje: <span id="lenguaje" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Profundidad de color: <span id="profcolor" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Resolución: <span id="resolucion" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Timezone: <span id="timezone" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Plataforma: <span id="plataforma" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Bloqueador de anuncios: <span id="adblock" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Memoria: <span id="memoria" class="texto-rojo"></span></p><br>
+            <p class="texto-blanco">Nivel de batería: <span id="bateria" class="texto-rojo"></span></p><br>
+
+
+            <br>
+            <p>
+                Para finalizar y por si tienes alguna duda, puedes revisar el código de esta página
+                en mi cuenta de github. Ten en cuenta que un cibercriminal podría haber hecho muchas cosas
+                perjudiciales con tus datos y tu dispositivo como, por ejemplo, minar criptomonedas.
+            </p>
+            <p>
+                Haz click en el botón y accederás directamente.
+            </p>
+            <div style="text-align:center">
+                <a href="https://github.com/jourdian/egoseek"><button class="contact100-form-btn">
+
+                        <span>
+                            Vamos a Github
+                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                        </span>
+
+                    </button></a>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

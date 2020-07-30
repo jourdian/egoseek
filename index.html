@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>EgoSeek</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script src="js/jquery/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container-contact100">
+
+        <div class="wrap-contact100">
+            <div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+                <span class="contact100-form-title-1">
+                    EgoSeek
+                </span>
+
+                <span class="contact100-form-title-2">
+                    Descubre qué sabe Internet acerca de ti
+                </span>
+            </div>
+
+            <form class="contact100-form validate-form" method="post">
+                <div class="wrap-input100 validate-input" data-validate="Name is required">
+                    <span class="label-input100">Nombre:</span>
+                    <input id="nombre" class="input100" type="text" name="name"
+                        placeholder="Introduzca el nombre completo">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <span class="label-input100">Email total o parcial:</span>
+                    <input id="email" class="input100" type="text" name="email"
+                        placeholder="Email con/sin la parte después de '@'">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <span class="label-input100">Teléfono móvil total o parcial (sin +34):</span>
+                    <input id="telefono" class="input100" type="text" name="phone"
+                        placeholder="Completo o solo cinco primeras cifras">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="wrap-input100 validate-input">
+                    <p>Para localizar la mayor cantidad de información es necesario disponer de datos
+                        suficientes y por eso solicitamos que rellenes este formulario. Pero el
+                        objetivo de Egoseek es proteger tu intimidad y por eso, aunque es mejor
+                        que aportes los datos completos, aceptamos que rellenes
+                        el formulario con datos parciales (para asegurarte que no los almacenamos
+                        nosotros).
+                    </p>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="padding-right:25px">
+                                    <a href="https://www.confianzaonline.es/empresas/el-sello/"><img
+                                            src="images/sello-confianza-50.png"></a>
+                                </div>
+                            </td>
+
+                            <td>
+                                <button class="contact100-form-btn" onclick="return pagina2()">
+
+                                    <span>
+                                        Siguiente
+                                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                    </span>
+
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+
+
+            <hr />
+            <div style="padding:20px">
+                <p><b>Quién somos</b></p>
+                <br>
+                <p>Egoseek es una organización sin ánimo de lucro cuyo objetivo es concienciar a la ciudadanía
+                    acerca de la seguridad en Internet.
+                    Ponemos especial énfasis en la privacidad y por eso ni siquiera solicitamos tus datos completos
+                    para ofrecer nuestro servicio.
+                </p>
+                <br>
+                <p>EgoSeek no se limita a buscar en los lugares habituales como redes sociales sino que tiene acceso
+                    a bases de datos de empresas
+                    comerciales que almacenan información cedida por otras empresas. De ese modo, Egoseek se
+                    convierte en una herramienta
+                    perfecta para que el consumidor pueda ejercer sus derechos.
+                </p>
+            </div>
+            <br>
+            <div style="padding:20px">
+                <p><b>Qué opinan de nosotros</b></p>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="width:80px;height:auto;padding-right:25px;"
+                                    src="images/cinco_estrellas.jpg">
+                            </td>
+                            <td>
+                                <p style="margin:10px;">"Nunca hubiese imaginado que Internet almacenase tanta
+                                    información acerca de mí."</p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <img style="width:80px;height:auto;padding-right:25px;"
+                                    src="images/cuatro_estrellas.jpg">
+                            </td>
+                            <td>
+                                <p style="margin:10px;">"No suelo utilizar mucho las redes y soy cuidadoso con mis
+                                    datos pero EgoSeek busca también la información
+                                    que almacenan algunas empresas y me he llevado una sopresa desagradable al
+                                    descubrir que mis datos están
+                                    en poder de empresas que ni siquiera conozco."
+                                </p>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+                <div>
+                    <p><b>Con el apoyo de</b></p>
+                    <br>
+                    <div style="text-align:center">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img style="width:60px;height:auto;margin-left:30px;margin-right:30px;"
+                                        src="images/incibe.jpg" />
+                                </td>
+                                <td>
+                                    <img style="width:60px;height:auto;margin-left:30px;margin-right:30px;"
+                                        src="images/ministerio-interior.jpg" />
+                                </td>
+                                <td>
+                                    <img style="width:60px;height:auto;margin-left:30px;margin-right:30px;"
+                                        src="images/ue.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
